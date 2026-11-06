@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>BITE — Hamburguesas artesanales</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+  <header class="barra">
+    <a class="marca" href="#inicio">
+      <span class="marca__nombre">BITE</span>
+      <span class="marca__tipo">Burger House</span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#menu">Menú</a>
+      <a href="#pedidos">Cómo pedir</a>
+      <a href="#local">Ubicación</a>
+    </nav>
+  </header>
+
+  <main>
+<section class="hero" id="inicio">
+
+  <div class="hero__texto">
+
+    <p class="etiqueta">
+      Calidad · Innovación · Experiencia
+    </p>
+
+    <h1>
+      Una explosión de sabor<br>
+      en cada <em>BITE</em>.
+    </h1>
+
+    <p class="hero__descripcion">
+      Descubre hamburguesas preparadas con ingredientes frescos,
+      combinaciones y sabores inigualabes, dentro de un ambiente moderno creado para disfrutar y compartir.
+    </p>
+
+    <div class="hero__acciones">
+
+      <a class="boton boton--principal" href="#menu">
+        Descubre nuestro menú
+      </a>
+
+      <a
+        class="boton boton--secundario"
+        href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20realizar%20un%20pedido."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Haz tu pedido
+      </a>
+
+    </div>
+
+    <p class="hero__frase">
+      No es solo una hamburguesa. Es sabor, estilo y una experiencia
+      que querrás repetir.
+    </p>
+
+  </div>
+
+  <div class="hero__ilustracion">
+
+    <img
+      src="./img/hamburguesa-bite.png"
+      alt="Hamburguesa especial del restaurante BITE"
+      class="hero__imagen"
+    >
+
+  </div>
+
+</section>
+
+     <section class="sabores" id="menu">
+
+      <div class="sabores__encabezado">
+    
+        <div>
+          <p class="seccion__etiqueta">Conoce nuestros sabores</p>
+    
+          <h2>
+            Elige tu próximo
+            <span>BITE</span>
+          </h2>
+        </div>
+    
+        <p class="sabores__introduccion">
+          Desde combinaciones clásicas hasta sabores más atrevidos.
+          Cada hamburguesa está preparada para convertirse en tu nueva favorita.
+        </p>
+    
+      </div>
+    
+      <div class="menu-bento">
+    
+        <article class="menu-bento__principal">
+    
+          <img
+            src="./img/bite-clasica.png"
+            alt="Hamburguesa BITE Clásica con carne y queso"
+            class="menu-bento__imagen-principal"
+          >
+    
+          <div class="menu-bento__contenido-principal">
+    
+            <p class="producto__categoria">
+              La favorita de la casa
+            </p>
+    
+            <h3>BITE Clásica</h3>
+    
+            <p>
+              Carne artesanal, queso cheddar, lechuga fresca,
+              tomate, cebolla y salsa especial BITE.
+            </p>
+    
+            <div class="producto__datos">
+    
+              <span class="producto__precio">$7.50</span>
+    
+              <a
+                href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20ordenar%20una%20BITE%20Clásica."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="producto__ordenar"
+              >
+                Ordenar ahora
+              </a>
+    
+            </div>
+    
+          </div>
+    
+        </article>
+
+        <article class="menu-bento__producto">
+    
+          <div class="producto__superior">
+            <p class="producto__categoria">Doble sabor</p>
+            <span class="producto__precio">$9.50</span>
+          </div>
+    
+          <img
+            src="./img/doble-bite.png"
+            alt="Hamburguesa Doble BITE"
+            class="menu-bento__imagen"
+          >
+    
+          <h3>Doble BITE</h3>
+    
+          <p>
+            Doble carne, doble cheddar, pepinillos y cebolla caramelizada.
+          </p>
+    
+          <a
+            href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20ordenar%20una%20Doble%20BITE."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="producto__enlace"
+          >
+            Quiero esta →
+          </a>
+    
+        </article>
+    
+        <article class="menu-bento__producto menu-bento__producto--amarillo">
+    
+          <div class="producto__superior">
+            <p class="producto__categoria">Crujiente</p>
+            <span class="producto__precio">$8.75</span>
+          </div>
+    
+          <img
+            src="./img/bacon-bite.png"
+            alt="Hamburguesa Bacon BITE"
+            class="menu-bento__imagen"
+          >
+    
+          <h3>Bacon BITE</h3>
+    
+          <p>
+            Carne artesanal, cheddar, tocino crujiente y salsa ahumada.
+          </p>
+    
+          <a
+            href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20ordenar%20una%20Bacon%20BITE."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="producto__enlace"
+          >
+            Quiero esta →
+          </a>
+    
+        </article>
+    
+    
+
+        <article class="menu-bento__horizontal">
+    
+          <div class="menu-bento__horizontal-texto">
+    
+            <p class="producto__categoria">
+              Para quienes buscan intensidad
+            </p>
+    
+            <h3>Spicy BITE</h3>
+    
+            <p>
+              Carne artesanal, queso, jalapeños, cebolla crujiente
+              y salsa picante de la casa.
+            </p>
+    
+            <div class="producto__datos">
+    
+              <span class="producto__precio">$8.50</span>
+    
+              <a
+                href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20ordenar%20una%20Spicy%20BITE."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="producto__ordenar producto__ordenar--oscuro"
+              >
+                Ordenar
+              </a>
+    
+            </div>
+    
+          </div>
+    
+          <img
+            src="./img/spicy-bite.png"
+            alt="Hamburguesa Spicy BITE con jalapeños"
+            class="menu-bento__horizontal-imagen"
+          >
+    
+        </article>
+    
+    
+        <article class="menu-bento__producto menu-bento__producto--oscuro">
+    
+          <div class="producto__superior">
+            <p class="producto__categoria">Pollo crujiente</p>
+            <span class="producto__precio">$8.00</span>
+          </div>
+    
+          <img
+            src="./img/crispy-bite.png"
+            alt="Hamburguesa Crispy BITE de pollo"
+            class="menu-bento__imagen"
+          >
+    
+          <h3>Crispy BITE</h3>
+    
+          <p>
+            Pollo crujiente, queso, lechuga, pepinillos y salsa cremosa.
+          </p>
+    
+          <a
+            href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20ordenar%20una%20Crispy%20BITE."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="producto__enlace"
+          >
+            Quiero esta →
+          </a>
+    
+        </article>
+    
+      </div>
+    
+      <p class="sabores__nota">
+        Puedes convertir cualquiera de nuestras hamburguesas en combo.
+        Consulta disponibilidad, ingredientes adicionales y promociones.
+      </p>
+    
+    </section>
+    
+    
+    <section class="crea-bite" id="pedidos">
+    
+      <div class="crea-bite__encabezado">
+    
+        <p class="seccion__etiqueta seccion__etiqueta--clara">
+          Tú eliges. Nosotros lo preparamos.
+        </p>
+    
+        <h2>
+          Crea tu propio BITE
+        </h2>
+    
+        <p>
+          Diseña una hamburguesa completamente a tu manera.
+          Combina proteínas, quesos, vegetales y salsas según tu antojo.
+        </p>
+    
+      </div>
+    
+    
+      <div class="crea-bite__opciones">
+    
+        <article class="crea-bite__paso">
+    
+          <span class="crea-bite__numero">01</span>
+    
+          <div>
+            <h3>Elige la base</h3>
+            <p>Carne artesanal, doble carne o pollo crujiente.</p>
+          </div>
+    
+        </article>
+    
+    
+        <article class="crea-bite__paso">
+    
+          <span class="crea-bite__numero">02</span>
+    
+          <div>
+            <h3>Añade el queso</h3>
+            <p>Cheddar, americano o una combinación de ambos.</p>
+          </div>
+    
+        </article>
+    
+    
+        <article class="crea-bite__paso">
+    
+          <span class="crea-bite__numero">03</span>
+    
+          <div>
+            <h3>Agrega tus extras</h3>
+            <p>Tocino, cebolla caramelizada, pepinillos o jalapeños.</p>
+          </div>
+    
+        </article>
+    
+    
+        <article class="crea-bite__paso">
+    
+          <span class="crea-bite__numero">04</span>
+    
+          <div>
+            <h3>Escoge la salsa</h3>
+            <p>Clásica BITE, ahumada, ajo cremoso o picante.</p>
+          </div>
+    
+        </article>
+    
+      </div>
+    
+    
+      <div class="crea-bite__final">
+    
+        <div>
+          <p class="crea-bite__llamado">
+            ¿Ya imaginaste tu combinación perfecta?
+          </p>
+    
+          <p>
+            Escríbenos y cuéntanos cómo quieres preparar tu hamburguesa.
+          </p>
+        </div>
+    
+        <a
+          href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20crear%20mi%20propia%20hamburguesa."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="crea-bite__boton"
+        >
+          Crear mi BITE
+        </a>
+    
+      </div>
+    
+    </section>
+    
+    <section class="experiencia">
+    
+      <div class="experiencia__frase">
+    
+        <p class="seccion__etiqueta">Mucho más que comida rápida</p>
+    
+        <h2>
+          Una experiencia hecha para disfrutar.
+        </h2>
+    
+      </div>
+    
+    
+      <div class="experiencia__elementos">
+    
+        <article>
+          <span>01</span>
+          <h3>Ingredientes frescos</h3>
+          <p>
+            Seleccionamos ingredientes que aportan sabor, textura
+            y calidad a cada preparación.
+          </p>
+        </article>
+    
+        <article>
+          <span>02</span>
+          <h3>Combinaciones únicas</h3>
+          <p>
+            Creamos sabores clásicos y atrevidos para que siempre
+            encuentres algo diferente.
+          </p>
+        </article>
+    
+        <article>
+          <span>03</span>
+          <h3>Preparado al momento</h3>
+          <p>
+            Cada pedido se prepara especialmente para ti,
+            respetando tus elecciones.
+          </p>
+        </article>
+    
+      </div>
+    
+    </section>
+    
+    <section class="visitanos" id="local">
+    
+      <div class="visitanos__informacion">
+    
+        <p class="seccion__etiqueta seccion__etiqueta--clara">
+          Ven por tu próximo BITE
+        </p>
+    
+        <h2>Estamos listos para recibirte.</h2>
+    
+        <p class="visitanos__descripcion">
+          Sustituye esta información por la dirección real del restaurante,
+          puntos de referencia y zonas disponibles para entrega.
+        </p>
+    
+    
+        <div class="visitanos__contactos">
+    
+          <div>
+            <span>WhatsApp</span>
+            <a href="https://wa.me/50765867527" target="_blank">
+              +507 6586-7527
+            </a>
+          </div>
+    
+          <div>
+            <span>Correo</span>
+            <a href="mailto:hola@biteburger.com">
+              hola@biteburger.com
+            </a>
+          </div>
+    
+          <div>
+            <span>Instagram</span>
+            <a href="#" target="_blank">
+              @biteburger
+            </a>
+          </div>
+    
+        </div>
+    
+      </div>
+    
+    
+      <div class="visitanos__horario">
+    
+        <p class="visitanos__titulo-horario">
+          Horario de atención
+        </p>
+    
+        <div class="horario__fila">
+          <span>Lunes a jueves</span>
+          <strong>11:00 a. m. – 9:00 p. m.</strong>
+        </div>
+    
+        <div class="horario__fila">
+          <span>Viernes y sábado</span>
+          <strong>11:00 a. m. – 11:00 p. m.</strong>
+        </div>
+    
+        <div class="horario__fila">
+          <span>Domingo</span>
+          <strong>12:00 p. m. – 9:00 p. m.</strong>
+        </div>
+    
+        <a
+          href="https://wa.me/50765867527?text=Hola%20BITE,%20quiero%20realizar%20un%20pedido."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="visitanos__boton"
+        >
+          Hacer un pedido
+        </a>
+    
+      </div>
+    
+    </section>
+
+
+</main>
+
+     <footer class="pie-bite">
+
+      <div class="pie-bite__marca">
+        <p>BITE</p>
+        <span>Burger House</span>
+      </div>
+    
+      <p class="pie-bite__frase">
+        Una explosión de sabor en cada mordida.
+      </p>
+    
+      <p class="pie-bite__derechos">
+        © 2026 BITE. Todos los derechos reservados.
+      </p>
+    
+    </footer>
+</body>
+</html>
