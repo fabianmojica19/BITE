@@ -427,6 +427,32 @@
       </div>
     
     </section>
+    <section id="contacto" class="contacto">
+      <h2>Escríbenos</h2>
+      <p>¿Tienes una pregunta sobre el menú o un pedido?</p>
+    
+      <form id="formulario-contacto">
+        <p>
+          <label for="contacto-nombre">Tu nombre</label><br>
+          <input id="contacto-nombre" name="nombre"
+                 type="text" autocomplete="name" maxlength="80" required>
+        </p>
+    
+        <p>
+          <label for="contacto-correo">Tu correo</label><br>
+          <input id="contacto-correo" name="correo"
+                 type="email" autocomplete="email" maxlength="254" required>
+        </p>
+    
+        <p>
+          <label for="contacto-mensaje">Tu consulta</label><br>
+          <textarea id="contacto-mensaje" name="mensaje"
+                    rows="4" maxlength="1000" required></textarea>
+        </p>
+    
+        <button type="submit" disabled>Enviar consulta</button>
+      </form>
+    </section>
     
     <section class="visitanos" id="local">
     
