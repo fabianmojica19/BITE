@@ -113,3 +113,23 @@ async function mostrarConsultas() {
     lista.append(fila);
   }
 }
+const cerrarSesion = document.getElementById("cerrar-sesion");
+
+cerrarSesion.addEventListener("click", async () => {
+  cerrarSesion.disabled = true;
+
+  try {
+    const { error } = await cliente.auth.signOut({ scope: "local" });
+    if (error) throw error;
+
+    document.getElementById("panel-consultas").hidden = true;
+    document.getElementById("lista-consultas").replaceChildren();
+    formulario.reset();
+    estado.textContent = "Sesión cerrada.";
+    document.getElementById("correo-admin").focus();
+  } catch {
+    estado.textContent = "No se pudo cerrar la sesión. Inténtalo de nuevo.";
+  } finally {
+    cerrarSesion.disabled = false;
+  }
+});
