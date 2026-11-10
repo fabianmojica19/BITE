@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración | BITE</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="./index.html">
+      <span class="marca__nombre">BITE</span>
+      <span class="marca__tipo">Burger House</span>
+    </a>
+    <nav class="nav" aria-label="Navegación">
+      <a href="./index.html">Volver al inicio</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Acceso de administración</h1>
+
+    <form id="formulario-login" method="post">
+      <p>
+        <label for="correo-admin">Correo electrónico</label><br>
+        <input id="correo-admin" name="correo" type="email"
+               autocomplete="username" required>
+      </p>
+
+      <p>
+        <label for="clave-admin">Contraseña</label><br>
+        <input id="clave-admin" name="clave" type="password"
+               autocomplete="current-password" required>
+      </p>
+
+      <button type="submit" disabled>Iniciar sesión</button>
+      <p id="estado-login" role="status"></p>
+    </form>
+    <section id="panel-consultas" hidden>
+      <h2>Consultas recibidas</h2>
+      <p id="aviso-consultas" role="status"></p>
+      <ul id="lista-consultas"></ul>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./assets/js/admin.js"></script>
+</body>
+</html>
