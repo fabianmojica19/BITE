@@ -284,7 +284,27 @@
     
     </section>
     
+    <section id="recomendador" aria-labelledby="titulo-recomendador">
+      <h2 id="titulo-recomendador">¿Qué BITE va contigo?</h2>
     
+      <form id="formulario-recomendador">
+        <label for="preferencia">¿Qué te apetece y cuánto quieres gastar?</label>
+        <p>
+          <input
+            id="preferencia"
+            name="preferencia"
+            type="text"
+            placeholder="Quiero algo picante por menos de $9"
+            maxlength="200"
+            required
+          >
+        </p>
+    
+        <button type="submit" disabled>Recomiéndame una BITE</button>
+        <p id="resultado-recomendador" role="status"></p>
+      </form>
+    </section>
+
     <section class="crea-bite" id="pedidos">
     
       <div class="crea-bite__encabezado">
@@ -553,5 +573,6 @@
     
     </footer>
     <script src="./assets/js/contacto.js"></script>
+    <script src="./assets/js/recomendador.js"></script>
 </body>
 </html>
