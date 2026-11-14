@@ -40,9 +40,20 @@ formularioRecomendador.addEventListener("submit", (evento) => {
   const limite = monto ? Number(monto[1].replace(",", ".")) : Infinity;
   const limiteEstricto = /\bmenos de\s*\$?\s*\d/.test(pedido);
 
-  const disponibles = menu.filter((producto) =>
-    limiteEstricto ? producto.precio < limite : producto.precio <= limite
-  );
+  const fraseSinPicante = /\b(?:sin picante|nada picante|que no pique)\b/g;
+  const pedidoPositivo = pedido.replace(fraseSinPicante, " ");
+  const evitaPicante = pedidoPositivo !== pedido;
+
+  const disponibles = menu.filter((producto) => {
+    const cumplePrecio = limiteEstricto
+      ? producto.precio < limite
+      : producto.precio <= limite;
+
+    const esPicante = producto.palabras.has("picante")
+      || producto.palabras.has("jalapenos");
+
+    return cumplePrecio && !(evitaPicante && esPicante);
+  });
 
   if (disponibles.length === 0) {
     resultado.textContent = "Ninguna hamburguesa del menú entra en ese presupuesto.";
@@ -53,7 +64,7 @@ formularioRecomendador.addEventListener("submit", (evento) => {
     "quiero", "algo", "con", "una", "que", "por", "para", "menos", "hasta",
     "maximo", "presupuesto", "dolares", "hamburguesa", "bite", "del", "las"
   ]);
-  const gustos = [...new Set(pedido.match(/[a-z]{3,}/g) || [])]
+  const gustos = [...new Set(pedidoPositivo.match(/[a-z]{3,}/g) || [])]
     .filter((palabra) => !ignorar.has(palabra));
 
   const opciones = disponibles.map((producto) => ({
