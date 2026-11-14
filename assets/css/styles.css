@@ -534,7 +534,7 @@ a {
 .sabores__nota {
   max-width: 700px;
   margin: 32px auto 0;
-  color: var(--gris);
+  color: #e0d6cd;
   font-size: 13px;
   text-align: center;
 }
