@@ -1034,3 +1034,9 @@ a {
   opacity: 0.6;
   cursor: default;
 }
+
+.nav a:focus-visible {
+  outline: 3px solid var(--amarillo);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
