@@ -1091,3 +1091,91 @@ a {
 .menu-bento__principal .producto__precio {
   color: var(--amarillo);
 }
+
+/* Panel de administración de BITE */
+#formulario-login,
+#panel-consultas {
+  width: min(840px, calc(100% - 32px));
+  margin: 24px auto;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid #e3d5c2;
+  border-radius: 20px;
+  background: var(--blanco);
+}
+
+#formulario-login {
+  max-width: 480px;
+  border-top: 5px solid var(--amarillo);
+}
+
+#formulario-login label {
+  font-weight: 700;
+}
+
+#formulario-login input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border: 1px solid #948474;
+  border-radius: 8px;
+  font: inherit;
+}
+
+#formulario-login button,
+#lista-consultas button,
+#cerrar-sesion {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 24px;
+  background: var(--amarillo);
+  color: var(--negro);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#cerrar-sesion {
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+#formulario-login button:disabled,
+#lista-consultas button:disabled,
+#cerrar-sesion:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#lista-consultas {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#lista-consultas li {
+  padding: 20px;
+  border: 1px solid #e3d5c2;
+  border-radius: 14px;
+  background: var(--crema);
+  color: var(--negro);
+  overflow-wrap: anywhere;
+}
+
+#lista-consultas li strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+#lista-consultas li p {
+  margin: 6px 0 12px;
+}
+
+#lista-consultas li p:last-of-type {
+  color: var(--gris);
+  font-size: 14px;
+}
