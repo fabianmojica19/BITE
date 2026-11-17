@@ -1040,3 +1040,54 @@ a {
   outline-offset: 4px;
   border-radius: 3px;
 }
+
+@media (min-width: 1000px) {
+  .menu-bento__principal {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .menu-bento__horizontal {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-bento__horizontal-imagen {
+    order: -1;
+    flex: none;
+    width: 100%;
+    height: 210px;
+    margin: 18px 0 0;
+    object-fit: contain;
+  }
+
+  .menu-bento__horizontal-texto {
+    flex: none;
+    padding: 20px 25px 25px;
+  }
+
+  .menu-bento__horizontal h3 {
+    font-size: 30px;
+  }
+}
+
+/* Bacon: texto oscuro sobre la tarjeta amarilla */
+.menu-bento__producto--amarillo>p {
+  color: var(--negro);
+}
+
+/* Crispy: descripción clara y precio amarillo sobre fondo oscuro */
+.menu-bento__producto--oscuro>p {
+  color: var(--crema);
+}
+
+.menu-bento__producto--oscuro .producto__precio {
+  color: var(--amarillo);
+}
+
+/* Clásica: resaltar la categoría y el precio sobre la foto */
+.menu-bento__principal .producto__categoria,
+.menu-bento__principal .producto__precio {
+  color: var(--amarillo);
+}
