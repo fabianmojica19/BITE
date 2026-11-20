@@ -554,7 +554,92 @@
     
     </section>
 
-
+    <dialog id="hacer-pedido" aria-labelledby="titulo-pedido">
+      <button
+        id="cerrar-pedido"
+        type="button"
+        aria-label="Cerrar formulario de pedido"
+      >×</button>
+      <h2 id="titulo-pedido">Tu próximo BITE</h2>
+<p>Completa tus datos y confirma tu pedido.</p>
+    
+      <form id="formulario-pedido">
+        <p>
+          <label for="pedido-producto">Hamburguesa</label><br>
+          <select id="pedido-producto" name="producto" required>
+            <option value="">Selecciona una hamburguesa</option>
+            <option value="clasica">BITE Clásica</option>
+            <option value="doble">Doble BITE</option>
+            <option value="bacon">Bacon BITE</option>
+            <option value="spicy">Spicy BITE</option>
+            <option value="crispy">Crispy BITE</option>
+          </select>
+        </p>
+    
+        <p>
+          <label for="pedido-cantidad">Cantidad</label><br>
+          <input
+            id="pedido-cantidad"
+            name="cantidad"
+            type="number"
+            min="1"
+            max="20"
+            step="1"
+            value="1"
+            required
+          >
+        </p>
+    
+        <p>
+          <label for="pedido-nombre">Tu nombre</label><br>
+          <input
+            id="pedido-nombre"
+            name="nombre"
+            type="text"
+            autocomplete="name"
+            minlength="2"
+            maxlength="80"
+            required
+          >
+        </p>
+    
+        <p>
+          <label for="pedido-telefono">Teléfono de contacto</label><br>
+          <input
+            id="pedido-telefono"
+            name="telefono"
+            type="tel"
+            autocomplete="tel"
+            minlength="7"
+            maxlength="25"
+            placeholder="Ejemplo: 6123-4567"
+            required
+          >
+        </p>
+    
+        <p>
+          <label for="pedido-observaciones">Observaciones opcionales</label><br>
+          <textarea
+            id="pedido-observaciones"
+            name="observaciones"
+            rows="3"
+            maxlength="500"
+            placeholder="Escribe alguna indicación para tu pedido"
+          ></textarea>
+        </p>
+    
+        <p id="total-pedido" aria-live="polite">
+          Selecciona una hamburguesa para consultar el total.
+        </p>
+    
+        <button id="confirmar-pedido" type="submit" disabled>
+          Confirmar pedido
+        </button>
+    
+        <p id="estado-pedido" role="status"></p>
+      </form>
+      </dialog>
+    
 </main>
 
      <footer class="pie-bite">
@@ -575,5 +660,6 @@
     </footer>
     <script src="./assets/js/contacto.js"></script>
     <script src="./assets/js/recomendador.js"></script>
+    <script src="./assets/js/pedidos.js"></script>
 </body>
 </html>

@@ -1179,3 +1179,201 @@ a {
   color: var(--gris);
   font-size: 14px;
 }
+
+#hacer-pedido {
+  padding: 48px 24px;
+  background: var(--crema);
+  color: var(--negro);
+}
+
+#hacer-pedido>h2,
+#hacer-pedido>p,
+#formulario-pedido {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+#formulario-pedido {
+  padding: 24px;
+  border: 1px solid #e3d5c2;
+  border-radius: 20px;
+  background: var(--blanco);
+}
+
+#formulario-pedido label {
+  font-weight: 700;
+}
+
+#formulario-pedido input,
+#formulario-pedido select,
+#formulario-pedido textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #948474;
+  border-radius: 8px;
+  background: var(--blanco);
+  color: var(--negro);
+  font: inherit;
+}
+
+#formulario-pedido textarea {
+  resize: vertical;
+}
+
+#total-pedido {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#confirmar-pedido {
+  min-height: 44px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 30px;
+  background: var(--amarillo);
+  color: var(--negro);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#confirmar-pedido:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+#formulario-pedido :focus-visible {
+  outline: 3px solid var(--rojo-oscuro);
+  outline-offset: 3px;
+}
+
+#estado-pedido {
+  overflow-wrap: anywhere;
+}
+
+/* Ventana de pedidos */
+#hacer-pedido {
+  position: fixed;
+  width: min(540px, calc(100% - 28px));
+  max-height: 90vh;
+  max-height: 90dvh;
+  margin: auto;
+  padding: 32px 24px 24px;
+  overflow-y: auto;
+  border: 0;
+  border-top: 7px solid var(--amarillo);
+  border-radius: 24px;
+  background: var(--crema);
+  color: var(--negro);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+}
+
+#hacer-pedido::backdrop {
+  background: rgb(23 19 15 / 75%);
+  backdrop-filter: blur(5px);
+}
+
+#hacer-pedido #titulo-pedido {
+  margin: 0 36px 8px 0;
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.1;
+}
+
+#hacer-pedido>p {
+  margin-bottom: 24px;
+  color: var(--gris);
+}
+
+#cerrar-pedido {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--negro);
+  color: var(--blanco);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#hacer-pedido #formulario-pedido {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#formulario-pedido p {
+  margin-bottom: 16px;
+}
+
+#formulario-pedido label {
+  font-weight: 700;
+}
+
+#formulario-pedido input,
+#formulario-pedido select,
+#formulario-pedido textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #d3c3ad;
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--negro);
+  font: inherit;
+  font-size: 16px;
+}
+
+#formulario-pedido textarea {
+  resize: vertical;
+}
+
+#hacer-pedido #total-pedido {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#hacer-pedido #confirmar-pedido {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 30px;
+  background: var(--amarillo);
+  color: var(--negro);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#confirmar-pedido:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+#hacer-pedido :focus-visible {
+  outline: 3px solid var(--rojo-oscuro);
+  outline-offset: 3px;
+}
+
+#estado-pedido {
+  overflow-wrap: anywhere;
+}
+
+html.pedido-abierto {
+  overflow: hidden;
+}
