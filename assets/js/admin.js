@@ -35,6 +35,7 @@ formulario.addEventListener("submit", async (evento) => {
     campoClave.value = "";
     estado.textContent = "Sesión iniciada. Bienvenido al panel de BITE.";
     await mostrarConsultas();
+    await mostrarPedidos();
   } catch {
     estado.textContent = "No se pudo conectar con Supabase. Revisa tu conexión.";
   } finally {
@@ -125,6 +126,9 @@ cerrarSesion.addEventListener("click", async () => {
     document.getElementById("panel-consultas").hidden = true;
     document.getElementById("lista-consultas").replaceChildren();
     formulario.reset();
+    versionPedidos++;
+    document.getElementById("panel-pedidos").hidden = true;
+    document.getElementById("lista-pedidos").replaceChildren();
     estado.textContent = "Sesión cerrada.";
     document.getElementById("correo-admin").focus();
   } catch {
@@ -133,3 +137,163 @@ cerrarSesion.addEventListener("click", async () => {
     cerrarSesion.disabled = false;
   }
 });
+let versionPedidos = 0;
+
+const panelPedidos = document.getElementById("panel-pedidos");
+const listaPedidos = document.getElementById("lista-pedidos");
+const avisoPedidos = document.getElementById("aviso-pedidos");
+const actualizarPedidos = document.getElementById("actualizar-pedidos");
+
+const estadosPedido = {
+  pendiente: "Pendiente",
+  "en preparacion": "En preparación",
+  listo: "Listo",
+  entregado: "Entregado",
+  cancelado: "Cancelado"
+};
+
+async function mostrarPedidos() {
+  const versionActual = ++versionPedidos;
+
+  panelPedidos.hidden = false;
+  actualizarPedidos.disabled = true;
+  listaPedidos.replaceChildren();
+  avisoPedidos.textContent = "Cargando pedidos…";
+
+  try {
+    const { data, error } = await cliente
+      .from("pedidos_bite")
+      .select(
+        "id, numero, creado_en, cliente, telefono, producto_nombre, cantidad, total, observaciones, estado"
+      )
+      .order("creado_en", { ascending: false });
+
+    if (versionActual !== versionPedidos) return;
+    if (error) throw error;
+
+    avisoPedidos.textContent = data.length
+      ? `Pedidos recibidos: ${data.length}`
+      : "Todavía no hay pedidos.";
+
+    for (const pedido of data) {
+      const tarjeta = document.createElement("li");
+      const titulo = document.createElement("h3");
+      const fecha = document.createElement("p");
+      const clientePedido = document.createElement("p");
+      const detalle = document.createElement("p");
+      const notas = document.createElement("p");
+      const etiqueta = document.createElement("label");
+      const selector = document.createElement("select");
+      const guardar = document.createElement("button");
+      const mensaje = document.createElement("p");
+
+      tarjeta.dataset.estado = pedido.estado;
+
+      titulo.textContent = `Pedido #${pedido.numero}`;
+
+      fecha.textContent = new Date(pedido.creado_en).toLocaleString(
+        "es-PA",
+        {
+          timeZone: "America/Panama",
+          dateStyle: "medium",
+          timeStyle: "short"
+        }
+      );
+
+      clientePedido.textContent =
+        `${pedido.cliente} · Teléfono: ${pedido.telefono}`;
+
+      detalle.textContent =
+        `${pedido.cantidad} × ${pedido.producto_nombre} · ` +
+        `Total: $${Number(pedido.total).toFixed(2)}`;
+
+      notas.textContent = pedido.observaciones
+        ? `Observaciones: ${pedido.observaciones}`
+        : "Sin observaciones.";
+
+      selector.id = `estado-pedido-${pedido.id}`;
+      etiqueta.htmlFor = selector.id;
+      etiqueta.textContent = "Estado del pedido";
+
+      for (const [valor, texto] of Object.entries(estadosPedido)) {
+        const opcion = document.createElement("option");
+        opcion.value = valor;
+        opcion.textContent = texto;
+        selector.append(opcion);
+      }
+
+      selector.value = pedido.estado;
+      guardar.type = "button";
+      guardar.textContent = "Guardar estado";
+      mensaje.setAttribute("role", "status");
+
+      guardar.addEventListener("click", async () => {
+        const nuevoEstado = selector.value;
+
+        if (nuevoEstado === pedido.estado) {
+          mensaje.textContent = "Ese estado ya está guardado.";
+          return;
+        }
+
+        guardar.disabled = true;
+        selector.disabled = true;
+        mensaje.textContent = "Guardando…";
+
+        try {
+          const { data: actualizado, error: errorEstado } = await cliente
+            .from("pedidos_bite")
+            .update({ estado: nuevoEstado })
+            .eq("id", pedido.id)
+            .eq("estado", pedido.estado)
+            .select("estado")
+            .single();
+
+          if (versionActual !== versionPedidos) return;
+          if (errorEstado) throw errorEstado;
+
+          pedido.estado = actualizado.estado;
+          selector.value = actualizado.estado;
+          tarjeta.dataset.estado = actualizado.estado;
+
+          mensaje.textContent =
+            `Estado guardado: ${estadosPedido[actualizado.estado]}.`;
+        } catch {
+          if (versionActual !== versionPedidos) return;
+
+          selector.value = pedido.estado;
+          mensaje.textContent =
+            "No se pudo confirmar el cambio. Pulsa «Actualizar pedidos» " +
+            "para consultar el estado guardado.";
+        } finally {
+          guardar.disabled = false;
+          selector.disabled = false;
+        }
+      });
+
+      tarjeta.append(
+        titulo,
+        fecha,
+        clientePedido,
+        detalle,
+        notas,
+        etiqueta,
+        selector,
+        guardar,
+        mensaje
+      );
+
+      listaPedidos.append(tarjeta);
+    }
+  } catch (error) {
+    if (versionActual !== versionPedidos) return;
+
+    avisoPedidos.textContent =
+      `No se pudieron cargar los pedidos: ${error.message}`;
+  } finally {
+    if (versionActual === versionPedidos) {
+      actualizarPedidos.disabled = false;
+    }
+  }
+}
+
+actualizarPedidos.addEventListener("click", mostrarPedidos);
